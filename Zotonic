@@ -1,4 +1,4 @@
-FROM stackbrew/ubuntu
+FROM hcvst/erlang
 
 MAINTAINER Hans Christian v. Stockhausen, hc@vst.io
 
@@ -7,15 +7,6 @@ RUN apt-get update
 RUN apt-get install -y build-essential
 RUN apt-get install -y postgresql
 RUN apt-get install -y imagemagick
-RUN apt-get install -y erlang-base
-RUN apt-get install -y erlang-tools
-RUN apt-get install -y erlang-parsetools
-RUN apt-get install -y erlang-inets
-RUN apt-get install -y erlang-ssl
-RUN apt-get install -y erlang-eunit
-RUN apt-get install -y erlang-dev
-RUN apt-get install -y erlang-xmerl
-RUN apt-get install -y erlang-src
 
 # Install additional packages
 RUN apt-get install -y git

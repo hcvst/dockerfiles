@@ -10,7 +10,13 @@ Notes
 Zotonic
 -------
 To run Zotonic in debug mode use the following command:
-`docker run -t -i -e HOME=/var/lib/zotonic -u zotonic -p 8000:8000 hcvst/zotonic /var/lib/zotonic/bin/zotonic debug`
+```bash
+docker run -t -i           \
+  -e HOME=/var/lib/zotonic \
+  -u zotonic -p 8000:8000  \
+  hcvst/zotonic            \
+  /var/lib/zotonic/bin/zotonic debug
+```
 
 To start Zotonic in detached mode run instead:
 `docker run -d -e HOME=/var/lib/zotonic -u zotonic -p 8000:8000 hcvst/zotonic /var/lib/zotonic/bin/zotonic start`

@@ -20,10 +20,10 @@ docker run -t -i           \
 
 To start Zotonic in detached mode run instead:
 ```bash
-docker run -d 
-  -e HOME=/var/lib/zotonic 
-  -u zotonic -p 8000:8000 
-  hcvst/zotonic 
+docker run -d              \
+  -e HOME=/var/lib/zotonic \
+  -u zotonic -p 8000:8000  \
+  hcvst/zotonic            \
   /var/lib/zotonic/bin/zotonic start
 ```
 

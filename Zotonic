@@ -1,0 +1,35 @@
+FROM stackbrew/ubuntu
+
+MAINTAINER Hans Christian v. Stockhausen, hc@vst.io
+
+# Install Dependencies
+RUN apt-get update
+RUN apt-get install -y build-essential
+RUN apt-get install -y postgresql
+RUN apt-get install -y imagemagick
+RUN apt-get install -y erlang-base
+RUN apt-get install -y erlang-tools
+RUN apt-get install -y erlang-parsetools
+RUN apt-get install -y erlang-inets
+RUN apt-get install -y erlang-ssl
+RUN apt-get install -y erlang-eunit
+RUN apt-get install -y erlang-dev
+RUN apt-get install -y erlang-xmerl
+RUN apt-get install -y erlang-src
+
+# Install additional packages
+RUN apt-get install -y git
+RUN apt-get install -y python-software-properties
+
+# Enable trust-authentication in PostgreSQL
+RUN echo "                                        " >> /etc/postgresql/9.1/main/pg_hba.conf
+RUN echo "# Zotonic settings                      " >> /etc/postgresql/9.1/main/pg_hba.conf
+RUN echo "local  all  zotonic                ident" >> /etc/postgresql/9.1/main/pg_hba.conf
+RUN echo "host   all  zotonic  127.0.0.1/32  md5  " >> /etc/postgresql/9.1/main/pg_hba.conf
+RUN echo "host   all  zotonic  ::1/128       md5  " >> /etc/postgresql/9.1/main/pg_hba.conf
+RUN service postgresql restart
+
+# Install Zotonic 
+RUN add-apt-repository -y ppa:arjan-scherpenisse/zotonic
+RUN apt-get update
+RUN apt-get install -y zotonic

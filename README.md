@@ -1,4 +1,4 @@
-dockerfiles
+Dockerfiles
 ===========
 
-docker.io Dockerfiles
+* Zotonic - http://zotonic.com

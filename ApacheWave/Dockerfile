@@ -15,3 +15,10 @@ RUN cd incubator-wave && ant get-third-party
 ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk-amd64
 RUN cd incubator-wave && ant compile-gwt 
 RUN cd incubator-wave && ant dist-server
+
+# Config
+RUN cd incubator-wave && ant -f server-config.xml -Dwave_server_domain=ubuntu.izazi.com -Dhttp_frontend_public_address=0.0.0.0:9898
+#RUN cd incubator-wave && ant -f server-config.xml -Dhttp_frontend_public_address=0.0.0.0:9898
+
+# Run
+CMD cd incubator-wave && ant run-server
